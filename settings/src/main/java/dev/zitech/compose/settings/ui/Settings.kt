@@ -3,9 +3,12 @@ package dev.zitech.compose.settings.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -29,13 +32,18 @@ fun Settings() {
     val viewModel: SettingsViewModel = viewModel()
 
     val state by viewModel.uiState.collectAsState()
-    SettingsList(modifier = Modifier, state = state)
+    SettingsList(
+        modifier = Modifier.fillMaxSize(),
+        state = state,
+        toggleNotificationSetting = viewModel::toggleNotificationSettings
+    )
 }
 
 @Composable
 fun SettingsList(
     modifier: Modifier,
-    state: SettingsState
+    state: SettingsState,
+    toggleNotificationSetting: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -57,5 +65,12 @@ fun SettingsList(
                 color = MaterialTheme.colors.onSurface
             )
         }
+        NotificationSettings(
+            modifier = modifier.fillMaxWidth(),
+            title = stringResource(id = R.string.settings_enable_notifications),
+            checked = state.notificationsEnabled,
+            onCheckedChanged = { toggleNotificationSetting() }
+        )
+        Divider()
     }
 }
