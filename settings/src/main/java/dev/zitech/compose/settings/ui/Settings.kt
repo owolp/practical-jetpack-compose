@@ -36,7 +36,8 @@ fun Settings() {
         modifier = Modifier.fillMaxSize(),
         state = state,
         toggleNotificationSetting = viewModel::toggleNotificationSettings,
-        toggleHintsSetting = viewModel::toggleHintSettings
+        toggleHintsSetting = viewModel::toggleHintSettings,
+        showManageSubscription = viewModel::showManageSubscription
     )
 }
 
@@ -45,7 +46,8 @@ fun SettingsList(
     modifier: Modifier,
     state: SettingsState,
     toggleNotificationSetting: () -> Unit,
-    toggleHintsSetting: () -> Unit
+    toggleHintsSetting: () -> Unit,
+    showManageSubscription: () -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -67,6 +69,7 @@ fun SettingsList(
                 color = MaterialTheme.colors.onSurface
             )
         }
+
         NotificationSettings(
             modifier = modifier.fillMaxWidth(),
             title = stringResource(id = R.string.settings_enable_notifications),
@@ -79,6 +82,12 @@ fun SettingsList(
             title = stringResource(id = R.string.settings_show_hints),
             checked = state.hintsEnabled,
             onShowHintsToggled = { toggleHintsSetting() }
+        )
+        Divider()
+        ManageSubscriptionSettingItem(
+            modifier = modifier.fillMaxWidth(),
+            title = stringResource(id = R.string.settings_manage_subscription),
+            onSettingsClicked = { showManageSubscription() }
         )
         Divider()
     }

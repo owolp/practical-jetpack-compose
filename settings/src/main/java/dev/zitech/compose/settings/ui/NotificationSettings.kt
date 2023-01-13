@@ -45,7 +45,10 @@ fun NotificationSettings(
                 .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = title, Modifier.weight(1F))
+            Text(
+                modifier = Modifier.weight(1F),
+                text = title
+            )
             Switch(
                 checked = checked,
                 onCheckedChange = null // not needed since already used by toggleable

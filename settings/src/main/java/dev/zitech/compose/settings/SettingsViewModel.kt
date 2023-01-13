@@ -25,4 +25,8 @@ class SettingsViewModel : ViewModel() {
     fun setTheme(option: ThemeOption) {
         uiState.value = uiState.value.copy(themeOption = option)
     }
+
+    fun showManageSubscription() {
+        // TODO:
+    }
 }
