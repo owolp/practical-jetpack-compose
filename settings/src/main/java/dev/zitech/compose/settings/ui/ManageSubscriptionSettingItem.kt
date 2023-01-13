@@ -15,7 +15,7 @@ import dev.zitech.compose.settings.R
 
 @Composable
 fun ManageSubscriptionSettingItem(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     title: String,
     onSettingsClicked: () -> Unit
 ) {

@@ -17,7 +17,7 @@ import dev.zitech.compose.settings.R
 
 @Composable
 fun HintSettingItem(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     title: String,
     checked: Boolean,
     onShowHintsToggled: (checked: Boolean) -> Unit

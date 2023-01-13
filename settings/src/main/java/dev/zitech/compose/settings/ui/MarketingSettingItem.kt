@@ -22,7 +22,7 @@ import dev.zitech.compose.settings.model.MarketingOption.NOT_ALLOWED
 
 @Composable
 fun MarketingSettingItem(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     selectedOption: MarketingOption,
     onOptionSelected: (option: MarketingOption) -> Unit
 ) {

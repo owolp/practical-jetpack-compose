@@ -20,7 +20,7 @@ import dev.zitech.compose.settings.model.ThemeOption
 
 @Composable
 fun ThemeSettingItem(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     selectedTheme: ThemeOption,
     onOptionSelected: (option: ThemeOption) -> Unit
 ) {

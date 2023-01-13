@@ -47,7 +47,7 @@ fun Settings() {
 
 @Composable
 fun SettingsList(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     state: SettingsState,
     toggleNotificationSetting: () -> Unit,
     toggleHintsSetting: () -> Unit,
