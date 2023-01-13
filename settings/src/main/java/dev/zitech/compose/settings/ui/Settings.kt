@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.zitech.compose.settings.R
 import dev.zitech.compose.settings.SettingsViewModel
+import dev.zitech.compose.settings.model.MarketingOption
 import dev.zitech.compose.settings.model.SettingsState
 
 @Composable
@@ -37,7 +38,8 @@ fun Settings() {
         state = state,
         toggleNotificationSetting = viewModel::toggleNotificationSettings,
         toggleHintsSetting = viewModel::toggleHintSettings,
-        showManageSubscription = viewModel::showManageSubscription
+        showManageSubscription = viewModel::showManageSubscription,
+        setMarketingOption = viewModel::setMarketingSettings
     )
 }
 
@@ -48,6 +50,7 @@ fun SettingsList(
     toggleNotificationSetting: () -> Unit,
     toggleHintsSetting: () -> Unit,
     showManageSubscription: () -> Unit,
+    setMarketingOption: (option: MarketingOption) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -71,24 +74,30 @@ fun SettingsList(
         }
 
         NotificationSettings(
-            modifier = modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             title = stringResource(id = R.string.settings_enable_notifications),
             checked = state.notificationsEnabled,
             onCheckedChanged = { toggleNotificationSetting() }
         )
         Divider()
         HintSettingsItem(
-            modifier = modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             title = stringResource(id = R.string.settings_show_hints),
             checked = state.hintsEnabled,
             onShowHintsToggled = { toggleHintsSetting() }
         )
         Divider()
         ManageSubscriptionSettingItem(
-            modifier = modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             title = stringResource(id = R.string.settings_manage_subscription),
             onSettingsClicked = { showManageSubscription() }
         )
         SectionSpacer(modifier = Modifier.fillMaxWidth())
+        MarketingSettingItem(
+            modifier = Modifier.fillMaxWidth(),
+            selectedOption = state.marketingOption,
+            onOptionSelected = { setMarketingOption(it) }
+        )
+        Divider()
     }
 }
