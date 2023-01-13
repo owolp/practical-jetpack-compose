@@ -35,7 +35,8 @@ fun Settings() {
     SettingsList(
         modifier = Modifier.fillMaxSize(),
         state = state,
-        toggleNotificationSetting = viewModel::toggleNotificationSettings
+        toggleNotificationSetting = viewModel::toggleNotificationSettings,
+        toggleHintsSetting = viewModel::toggleHintSettings
     )
 }
 
@@ -43,7 +44,8 @@ fun Settings() {
 fun SettingsList(
     modifier: Modifier,
     state: SettingsState,
-    toggleNotificationSetting: () -> Unit
+    toggleNotificationSetting: () -> Unit,
+    toggleHintsSetting: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -70,6 +72,13 @@ fun SettingsList(
             title = stringResource(id = R.string.settings_enable_notifications),
             checked = state.notificationsEnabled,
             onCheckedChanged = { toggleNotificationSetting() }
+        )
+        Divider()
+        HintSettingsItem(
+            modifier = modifier.fillMaxWidth(),
+            title = stringResource(id = R.string.settings_show_hints),
+            checked = state.hintsEnabled,
+            onShowHintsToggled = { toggleHintsSetting() }
         )
         Divider()
     }
