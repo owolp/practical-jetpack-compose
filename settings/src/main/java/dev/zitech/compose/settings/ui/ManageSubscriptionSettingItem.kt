@@ -19,7 +19,7 @@ fun ManageSubscriptionSettingItem(
     title: String,
     onSettingsClicked: () -> Unit
 ) {
-    SettingsItem(modifier = modifier) {
+    SettingItem(modifier = modifier) {
         Row(
             modifier = Modifier
                 // Set cd to the whole area, otherwise talkback will mention only the Icon cd (if not null)

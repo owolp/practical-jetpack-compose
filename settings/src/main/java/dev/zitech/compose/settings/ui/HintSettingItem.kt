@@ -3,7 +3,7 @@ package dev.zitech.compose.settings.ui
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.toggleable
-import androidx.compose.material.Switch
+import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,31 +16,30 @@ import androidx.compose.ui.unit.dp
 import dev.zitech.compose.settings.R
 
 @Composable
-fun NotificationSettings(
-    modifier: Modifier = Modifier,
+fun HintSettingItem(
+    modifier: Modifier,
     title: String,
     checked: Boolean,
-    onCheckedChanged: (checked: Boolean) -> Unit
+    onShowHintsToggled: (checked: Boolean) -> Unit
 ) {
-    val notificationsEnabledState = stringResource(
+    val hintsEnabledState = stringResource(
         id = if (checked) {
-            R.string.cd_notifications_enabled
+            R.string.cd_hints_enabled
         } else {
-            R.string.cd_notifications_disabled
+            R.string.cd_hints_disabled
         }
     )
-
-    SettingsItem(modifier = modifier) {
+    SettingItem(modifier = modifier) {
         Row(
             modifier = Modifier
                 // use toggleable, to make the whole Row clickable
                 .toggleable(
                     value = checked,
-                    onValueChange = onCheckedChanged,
-                    role = Role.Switch // used by talkback
+                    onValueChange = onShowHintsToggled,
+                    role = Role.Checkbox
                 )
                 .semantics { // describe the current state of the composable when using talkback
-                    stateDescription = notificationsEnabledState
+                    stateDescription = hintsEnabledState
                 }
                 .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -49,7 +48,7 @@ fun NotificationSettings(
                 modifier = Modifier.weight(1F),
                 text = title
             )
-            Switch(
+            Checkbox(
                 checked = checked,
                 onCheckedChange = null // not needed since already used by toggleable
             )

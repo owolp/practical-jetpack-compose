@@ -73,14 +73,14 @@ fun SettingsList(
             )
         }
 
-        NotificationSettings(
+        NotificationSettingItem(
             modifier = Modifier.fillMaxWidth(),
             title = stringResource(id = R.string.settings_enable_notifications),
             checked = state.notificationsEnabled,
             onCheckedChanged = { toggleNotificationSetting() }
         )
         Divider()
-        HintSettingsItem(
+        HintSettingItem(
             modifier = Modifier.fillMaxWidth(),
             title = stringResource(id = R.string.settings_show_hints),
             checked = state.hintsEnabled,
