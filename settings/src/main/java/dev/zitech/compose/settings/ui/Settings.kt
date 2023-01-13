@@ -107,5 +107,11 @@ fun SettingsList(
             selectedTheme = state.themeOption,
             onOptionSelected = { setThemeOption(it) }
         )
+        Divider()
+        AppVersionSettingItem(
+            modifier = Modifier.fillMaxWidth(),
+            appVersion = stringResource(id = R.string.settings_app_version)
+        )
+        Divider()
     }
 }
