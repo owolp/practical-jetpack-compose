@@ -62,7 +62,7 @@ fun SettingsList(
                 contentDescription = stringResource(id = R.string.cd_go_back),
                 tint = MaterialTheme.colors.onSurface
             )
-            Spacer(modifier = modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(16.dp))
             Text(
                 text = stringResource(id = R.string.title_settings),
                 fontSize = 18.sp,
