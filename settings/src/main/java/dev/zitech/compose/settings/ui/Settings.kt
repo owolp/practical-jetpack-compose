@@ -89,6 +89,6 @@ fun SettingsList(
             title = stringResource(id = R.string.settings_manage_subscription),
             onSettingsClicked = { showManageSubscription() }
         )
-        Divider()
+        SectionSpacer(modifier = Modifier.fillMaxWidth())
     }
 }
