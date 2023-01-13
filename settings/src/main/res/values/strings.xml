@@ -12,6 +12,7 @@
         <item>Don\'t send me emails</item>
     </string-array>
     <string name="settings_option_marketing">Receive marketing emails?</string>
+    <string name="settings_option_theme">Theme</string>
 
     <string name="cd_go_back">Go back to previous screen</string>
     <string name="cd_notifications_enabled">Notifications Enabled</string>
@@ -19,4 +20,5 @@
     <string name="cd_hints_enabled">Hints Enabled</string>
     <string name="cd_hints_disabled">Hints Disabled</string>
     <string name="cd_open_subscription">Open Subscription Management</string>
+    <string name="cd_select_theme">Select theme</string>
 </resources>

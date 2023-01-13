@@ -27,6 +27,7 @@ import dev.zitech.compose.settings.R
 import dev.zitech.compose.settings.SettingsViewModel
 import dev.zitech.compose.settings.model.MarketingOption
 import dev.zitech.compose.settings.model.SettingsState
+import dev.zitech.compose.settings.model.ThemeOption
 
 @Composable
 fun Settings() {
@@ -39,7 +40,8 @@ fun Settings() {
         toggleNotificationSetting = viewModel::toggleNotificationSettings,
         toggleHintsSetting = viewModel::toggleHintSettings,
         showManageSubscription = viewModel::showManageSubscription,
-        setMarketingOption = viewModel::setMarketingSettings
+        setMarketingOption = viewModel::setMarketingSettings,
+        setThemeOption = viewModel::setTheme
     )
 }
 
@@ -50,7 +52,8 @@ fun SettingsList(
     toggleNotificationSetting: () -> Unit,
     toggleHintsSetting: () -> Unit,
     showManageSubscription: () -> Unit,
-    setMarketingOption: (option: MarketingOption) -> Unit
+    setMarketingOption: (option: MarketingOption) -> Unit,
+    setThemeOption: (option: ThemeOption) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -99,5 +102,10 @@ fun SettingsList(
             onOptionSelected = { setMarketingOption(it) }
         )
         Divider()
+        ThemeSettingItem(
+            modifier = Modifier.fillMaxWidth(),
+            selectedTheme = state.themeOption,
+            onOptionSelected = { setThemeOption(it) }
+        )
     }
 }
