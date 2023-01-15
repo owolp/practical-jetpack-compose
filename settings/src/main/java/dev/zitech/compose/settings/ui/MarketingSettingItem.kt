@@ -11,11 +11,13 @@ import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import dev.zitech.compose.settings.R
+import dev.zitech.compose.settings.Tags.TAG_MARKETING_OPTION
 import dev.zitech.compose.settings.model.MarketingOption
 import dev.zitech.compose.settings.model.MarketingOption.ALLOWED
 import dev.zitech.compose.settings.model.MarketingOption.NOT_ALLOWED
@@ -38,6 +40,7 @@ fun MarketingSettingItem(
             options.forEachIndexed { index, option ->
                 Row(
                     modifier = Modifier
+                        .testTag(TAG_MARKETING_OPTION + index)
                         .fillMaxWidth()
                         // Clickable is not used here, instead use selectable, so that talkback can provide better accessibility info
 //                        .clickable(onClickLabel = option) {

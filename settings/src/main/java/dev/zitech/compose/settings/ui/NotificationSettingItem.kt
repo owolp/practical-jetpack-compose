@@ -8,12 +8,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.unit.dp
 import dev.zitech.compose.settings.R
+import dev.zitech.compose.settings.Tags.TAG_TOGGLE_ITEM
 
 @Composable
 fun NotificationSettingItem(
@@ -33,6 +35,7 @@ fun NotificationSettingItem(
     SettingItem(modifier = modifier) {
         Row(
             modifier = Modifier
+                .testTag(TAG_TOGGLE_ITEM)
                 // use toggleable, to make the whole Row clickable
                 .toggleable(
                     value = checked,

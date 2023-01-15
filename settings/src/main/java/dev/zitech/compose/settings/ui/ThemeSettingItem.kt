@@ -12,10 +12,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import dev.zitech.compose.settings.R
+import dev.zitech.compose.settings.Tags.TAG_SELECT_THEME
+import dev.zitech.compose.settings.Tags.TAG_THEME_OPTION
 import dev.zitech.compose.settings.model.ThemeOption
 
 @Composable
@@ -29,6 +32,7 @@ fun ThemeSettingItem(
     SettingItem(modifier = modifier) {
         Row(
             modifier = Modifier
+                .testTag(TAG_SELECT_THEME)
                 .clickable(
                     onClickLabel = stringResource(id = R.string.cd_select_theme),
                     onClick = { dropDownExpanded = !dropDownExpanded }
@@ -49,7 +53,10 @@ fun ThemeSettingItem(
             offset = DpOffset(16.dp, 0.dp)
         ) {
             ThemeOption.values().forEach {
-                DropdownMenuItem(onClick = {
+                val themeLabel = stringResource(id = it.label)
+                DropdownMenuItem(
+                    modifier = Modifier.testTag(TAG_THEME_OPTION + themeLabel),
+                    onClick = {
                     onOptionSelected(it)
                     dropDownExpanded = false
                 }) {
