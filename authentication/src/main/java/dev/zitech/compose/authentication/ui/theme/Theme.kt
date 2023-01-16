@@ -1,4 +1,4 @@
-package dev.zitech.compose.settings.ui.theme
+package dev.zitech.compose.authentication.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -28,7 +28,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun SettingsTheme(
+fun AuthenticationTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

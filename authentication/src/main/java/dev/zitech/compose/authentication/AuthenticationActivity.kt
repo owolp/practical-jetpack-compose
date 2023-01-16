@@ -1,17 +1,15 @@
-package dev.zitech.compose.settings
+package dev.zitech.compose.authentication
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import dev.zitech.compose.settings.ui.Settings
-import dev.zitech.compose.settings.ui.theme.SettingsTheme
+import dev.zitech.compose.authentication.ui.theme.AuthenticationTheme
 
-class SettingsActivity : ComponentActivity() {
+class AuthenticationActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SettingsTheme {
-                Settings()
+            AuthenticationTheme {
             }
         }
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="dev.zitech.compose.settings">
+    package="dev.zitech.compose.authentication">
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,7 @@
         android:theme="@style/Theme.PracticalJetpackCompose"
         tools:targetApi="31">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".AuthenticationActivity"
             android:exported="true"
             android:theme="@style/Theme.PracticalJetpackCompose">
             <intent-filter>
@@ -28,5 +28,4 @@
                 android:value="" />
         </activity>
     </application>
-
 </manifest>
