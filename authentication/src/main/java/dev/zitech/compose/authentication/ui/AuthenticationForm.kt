@@ -16,7 +16,8 @@ fun AuthenticationForm(
     email: String?,
     password: String?,
     onEmailChanged: (email: String) -> Unit,
-    onPasswordChanged: (email: String) -> Unit
+    onPasswordChanged: (email: String) -> Unit,
+    onAuthenticate: () -> Unit
 ) {
     Column(
         modifier = modifier,
@@ -31,7 +32,8 @@ fun AuthenticationForm(
             email = email,
             password = password,
             onEmailChanged = onEmailChanged,
-            onPasswordChanged = onPasswordChanged
+            onPasswordChanged = onPasswordChanged,
+            onDoneClicked = onAuthenticate
         )
     }
 }

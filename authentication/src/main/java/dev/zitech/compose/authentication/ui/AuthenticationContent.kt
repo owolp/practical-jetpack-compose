@@ -32,6 +32,9 @@ fun AuthenticationContent(
                 },
                 onPasswordChanged = { password ->
                     handleEvent(AuthenticationEvent.PasswordChanged(password))
+                },
+                onAuthenticate = {
+                    handleEvent(AuthenticationEvent.Authenticate)
                 }
             )
         }
