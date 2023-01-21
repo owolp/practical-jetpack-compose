@@ -44,5 +44,13 @@ fun AuthenticationContent(
                 }
             )
         }
+        state.error?.let { error ->
+            AuthenticationErrorDialog(
+                error = error,
+                dismissError = {
+                    handleEvent(AuthenticationEvent.ErrorDismissed)
+                }
+            )
+        }
     }
 }
