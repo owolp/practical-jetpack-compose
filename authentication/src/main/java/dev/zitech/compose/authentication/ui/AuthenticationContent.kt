@@ -16,7 +16,8 @@ fun AuthenticationContent(
     handleEvent: (AuthenticationEvent) -> Unit
 ) {
     Box(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier
+            .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         if (state.isLoading) {
@@ -27,6 +28,8 @@ fun AuthenticationContent(
                 authenticationMode = state.authenticationMode,
                 email = state.email,
                 password = state.password,
+                completedPasswordRequirements = state.passwordRequirements,
+                enableAuthentication = state.isFormValid(),
                 onEmailChanged = { email ->
                     handleEvent(AuthenticationEvent.EmailChanged(email))
                 },
@@ -35,6 +38,9 @@ fun AuthenticationContent(
                 },
                 onAuthenticate = {
                     handleEvent(AuthenticationEvent.Authenticate)
+                },
+                onToggleMode = {
+                    handleEvent(AuthenticationEvent.ToggleAuthenticationMode)
                 }
             )
         }

@@ -6,13 +6,13 @@ data class AuthenticationState(
     val error: String? = null,
     val isLoading: Boolean = false,
     val password: String? = null,
-    val passwordRequirements: List<PasswordRequirements> = emptyList()
+    val passwordRequirements: List<PasswordRequirement> = emptyList()
 ) {
 
     fun isFormValid(): Boolean =
         email?.isNotEmpty() == true &&
             password?.isNotEmpty() == true &&
-            (authenticationMode == AuthenticationMode.SIGN_UP || passwordRequirements.containsAll(
-                PasswordRequirements.values().toList()
+            (authenticationMode == AuthenticationMode.SIGN_IN || passwordRequirements.containsAll(
+                PasswordRequirement.values().toList()
             ))
 }

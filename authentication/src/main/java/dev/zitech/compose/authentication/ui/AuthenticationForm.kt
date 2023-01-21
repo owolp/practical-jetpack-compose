@@ -2,12 +2,14 @@ package dev.zitech.compose.authentication.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.zitech.compose.authentication.model.AuthenticationMode
+import dev.zitech.compose.authentication.model.PasswordRequirement
 
 @Composable
 fun AuthenticationForm(
@@ -15,9 +17,12 @@ fun AuthenticationForm(
     authenticationMode: AuthenticationMode,
     email: String?,
     password: String?,
+    completedPasswordRequirements: List<PasswordRequirement>,
+    enableAuthentication: Boolean,
     onEmailChanged: (email: String) -> Unit,
     onPasswordChanged: (email: String) -> Unit,
-    onAuthenticate: () -> Unit
+    onAuthenticate: () -> Unit,
+    onToggleMode: () -> Unit
 ) {
     Column(
         modifier = modifier,
@@ -31,9 +36,21 @@ fun AuthenticationForm(
         AuthenticationCard(
             email = email,
             password = password,
+            authenticationMode = authenticationMode,
+            completedPasswordRequirements = completedPasswordRequirements,
+            enableAuthentication = enableAuthentication,
             onEmailChanged = onEmailChanged,
             onPasswordChanged = onPasswordChanged,
-            onDoneClicked = onAuthenticate
+            onDoneClicked = onAuthenticate,
+            onAuthenticate = onAuthenticate,
+        )
+
+        Spacer(modifier = Modifier.weight(1F))
+
+        ToggleAuthenticationMode(
+            modifier = Modifier.fillMaxWidth(),
+            authenticationMode = authenticationMode,
+            toggleAuthentication = onToggleMode
         )
     }
 }

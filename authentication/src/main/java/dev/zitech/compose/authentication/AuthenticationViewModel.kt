@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dev.zitech.compose.authentication.model.AuthenticationEvent
 import dev.zitech.compose.authentication.model.AuthenticationMode
 import dev.zitech.compose.authentication.model.AuthenticationState
-import dev.zitech.compose.authentication.model.PasswordRequirements
+import dev.zitech.compose.authentication.model.PasswordRequirement
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -41,16 +41,16 @@ class AuthenticationViewModel : ViewModel() {
 
     private fun updatePassword(password: String) {
         if (uiState.value.authenticationMode == AuthenticationMode.SIGN_UP) {
-            val requirements = mutableListOf<PasswordRequirements>()
+            val requirements = mutableListOf<PasswordRequirement>()
 
             if (password.any { it.isUpperCase() }) {
-                requirements.add(PasswordRequirements.CAPITAL_LETTER)
+                requirements.add(PasswordRequirement.CAPITAL_LETTER)
             }
             if (password.any { it.isDigit() }) {
-                requirements.add(PasswordRequirements.NUMBER)
+                requirements.add(PasswordRequirement.NUMBER)
             }
             if (password.length > 7) {
-                requirements.add(PasswordRequirements.EIGHT_CHARACTERS)
+                requirements.add(PasswordRequirement.EIGHT_CHARACTERS)
             }
 
             uiState.value = uiState.value.copy(
