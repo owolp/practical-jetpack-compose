@@ -18,7 +18,7 @@ import dev.zitech.compose.settings.ui.Settings
 import org.junit.Rule
 import org.junit.Test
 
-class Settingstest {
+class SettingsТest {
 
     @get:Rule
     val composeTestRule = createComposeRule()

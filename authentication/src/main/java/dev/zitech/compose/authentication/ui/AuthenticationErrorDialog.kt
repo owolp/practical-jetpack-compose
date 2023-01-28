@@ -5,9 +5,11 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import dev.zitech.compose.authentication.R
+import dev.zitech.compose.authentication.Tags
 
 @Composable
 fun AuthenticationErrorDialog(
@@ -16,7 +18,8 @@ fun AuthenticationErrorDialog(
     dismissError: () -> Unit
 ) {
     AlertDialog(
-        modifier = modifier,
+        modifier = modifier
+            .testTag(Tags.TAG_ERROR_ALERT),
         onDismissRequest = dismissError,
         confirmButton = {
             TextButton(

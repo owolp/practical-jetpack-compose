@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
+import dev.zitech.compose.authentication.Tags
 import dev.zitech.compose.authentication.model.AuthenticationMode
 import dev.zitech.compose.authentication.model.PasswordRequirement
 

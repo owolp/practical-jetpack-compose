@@ -4,8 +4,10 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import dev.zitech.compose.authentication.R
+import dev.zitech.compose.authentication.Tags
 import dev.zitech.compose.authentication.model.AuthenticationMode
 
 @Composable
@@ -16,9 +18,10 @@ fun AuthenticationButton(
     onAuthenticate: () -> Unit
 ) {
     Button(
-        modifier = modifier,
+        modifier = modifier
+            .testTag(Tags.TAG_AUTHENTICATE_BUTTON),
         enabled = enableAuthentication,
-        onClick = onAuthenticate
+        onClick = onAuthenticate,
     ) {
         Text(
             text = stringResource(

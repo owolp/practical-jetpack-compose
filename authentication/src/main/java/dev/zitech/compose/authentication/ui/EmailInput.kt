@@ -9,10 +9,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import dev.zitech.compose.authentication.R
+import dev.zitech.compose.authentication.Tags
 
 @Composable
 fun EmailInput(
@@ -22,7 +24,8 @@ fun EmailInput(
     onNextClicked: () -> Unit
 ) {
     TextField(
-        modifier = modifier,
+        modifier = modifier
+            .testTag(Tags.TAG_INPUT_EMAIL),
         value = email.orEmpty(),
         onValueChange = onEmailChanged,
         label = {

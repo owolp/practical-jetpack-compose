@@ -8,9 +8,11 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import dev.zitech.compose.authentication.R
+import dev.zitech.compose.authentication.Tags
 import dev.zitech.compose.authentication.model.AuthenticationMode
 
 @Composable
@@ -27,7 +29,8 @@ fun ToggleAuthenticationMode(
         TextButton(
             modifier = Modifier
                 .background(MaterialTheme.colors.surface)
-                .padding(8.dp),
+                .padding(8.dp)
+                .testTag(Tags.TAG_AUTHENTICATION_TOGGLE),
             onClick = toggleAuthentication
         ) {
             Text(
